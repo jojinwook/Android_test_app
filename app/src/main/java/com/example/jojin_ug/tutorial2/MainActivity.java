@@ -21,26 +21,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addClick(View v) {
-        int n1 = Integer.parseInt(mNumber1.getText().toString());
-        int n2 = Integer.parseInt(mNumber2.getText().toString());
-        mResultView.setText(Integer.toString(n1 + n2));
+        setResult("add");
     }
 
     public void subtrackClick(View v) {
-        int n1 = Integer.parseInt(mNumber1.getText().toString());
-        int n2 = Integer.parseInt(mNumber2.getText().toString());
-        mResultView.setText(Integer.toString(n1 - n2));
+        setResult("subtrack");
     }
 
     public void multiplyClick(View v) {
-        int n1 = Integer.parseInt(mNumber1.getText().toString());
-        int n2 = Integer.parseInt(mNumber2.getText().toString());
-        mResultView.setText(Integer.toString(n1 * n2));
+        setResult("multiply");
     }
 
     public void divideClick(View v) {
+        setResult("divide");
+    }
+
+    private void setResult(String type) {
         int n1 = Integer.parseInt(mNumber1.getText().toString());
         int n2 = Integer.parseInt(mNumber2.getText().toString());
-        mResultView.setText(Integer.toString(n1 / n2));
+        switch (type) {
+            case "add":
+                mResultView.setText(Integer.toString(n1 + n2));
+                break;
+            case "subtrack":
+                mResultView.setText(Integer.toString(n1 - n2));
+                break;
+            case "multiply":
+                mResultView.setText(Integer.toString(n1 * n2));
+                break;
+            case "divide":
+                mResultView.setText(Integer.toString(n1 / n2));
+                break;
+            default:
+                mResultView.setText("정확한 연산자를 선택하세요.");
+        }
     }
 }
