@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private EditText mNumber1;
@@ -37,23 +38,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setResult(String type) {
-        int n1 = Integer.parseInt(mNumber1.getText().toString());
-        int n2 = Integer.parseInt(mNumber2.getText().toString());
-        switch (type) {
-            case "add":
-                mResultView.setText(Integer.toString(n1 + n2));
-                break;
-            case "subtrack":
-                mResultView.setText(Integer.toString(n1 - n2));
-                break;
-            case "multiply":
-                mResultView.setText(Integer.toString(n1 * n2));
-                break;
-            case "divide":
-                mResultView.setText(Integer.toString(n1 / n2));
-                break;
-            default:
-                mResultView.setText("정확한 연산자를 선택하세요.");
+        try {
+            int n1 = Integer.parseInt(mNumber1.getText().toString());
+            int n2 = Integer.parseInt(mNumber2.getText().toString());
+            switch (type) {
+                case "add":
+                    mResultView.setText(Integer.toString(n1 + n2));
+                    break;
+                case "subtrack":
+                    mResultView.setText(Integer.toString(n1 - n2));
+                    break;
+                case "multiply":
+                    mResultView.setText(Integer.toString(n1 * n2));
+                    break;
+                case "divide":
+                    mResultView.setText(Integer.toString(n1 / n2));
+                    break;
+                default:
+                    mResultView.setText("정확한 연산자를 선택하세요.");
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "정확한 숫자를 입력해주세요", Toast.LENGTH_SHORT).show();
         }
     }
 }
