@@ -1,3 +1,3 @@
 # Android_test_app
 
-D-6
+D-4
