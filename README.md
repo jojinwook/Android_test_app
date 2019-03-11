@@ -1,2 +1,2 @@
-# Android_test_app
+# Android_test
 
