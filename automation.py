@@ -29,7 +29,7 @@ class TestStringMethods(object):
         #
         # credentials = ServiceAccountCredentials.from_json_keyfile_name(
         #     '/Users/jojin-ug/Downloads/Android-89aedfc5e2fa.json', scope)
-        #
+        
         # global gc
         # gc = gspread.authorize(credentials)
         #
